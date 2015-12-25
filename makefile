@@ -2,7 +2,7 @@
 CC = g++
 # Flag required to create object files
 CFLAGS = -c -std=c++11
-# Contains executable EDF
+# Contains executables 
 TARGET = bin/
 # Contains object files
 OBJ = obj/
@@ -11,9 +11,9 @@ INCLUDE = include/
 # Contains source files
 SRC = src/
 # Contains input
-IN = input
+# IN = input
 # Is generated and contains output
-OUT = output
+# OUT = output
 
 # Contains the names of all the source files
 SOURCES=$(wildcard $(SRC)*.cpp)
@@ -30,11 +30,11 @@ OBJECTS=$(patsubst %.cpp,$(OBJ)%.o,$(notdir $(SOURCES)))
 # All : $(TARGET)EDF
 
 # Main target --- output file
-All : $(OUT)
+# All : $(OUT)
 
 # Rule to create output file
-$(OUT) : $(TARGET)EDF $(IN)
-	./$< < $(word 2,$^) > $@
+# $(OUT) : $(TARGET)EDF $(IN)
+# 	./$< < $(word 2,$^) > $@
 
 # Rule to create executable file
 $(TARGET)EDF : make_dir $(OBJECTS)
@@ -42,23 +42,6 @@ $(TARGET)EDF : make_dir $(OBJECTS)
 
 # $@ - The file name of the target of the rule
 
-# $(OBJ)comparefuncs.o : $(SRC)comparefuncs.cpp $(HEADERS)
-	# $(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
-
-# $< - The name of the first prerequisite
-
-# $(OBJ)EDF.o : $(SRC)EDF.cpp $(HEADERS)
-	# $(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
-
-# $(OBJ)input.o : $(SRC)input.cpp $(HEADERS)
-	# $(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
-
-# $(OBJ)main.o : $(SRC)main.cpp $(HEADERS)
-	# $(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
-
-# $(OBJ)print.o : $(SRC)print.cpp $(HEADERS)
-	# $(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
-	
 # Rule to create object files
 $(OBJ)%.o : $(SRC)%.cpp $(HEADERS)
 	$(CC) $(CFLAGS) -I$(INCLUDE) $< -o $@
@@ -71,4 +54,4 @@ make_dir:
 clean:
 	-rm -rf bin
 	-rm -rf obj
-	-rm -f EDF *.o *~ output
+# -rm -f EDF *.o *~ output
