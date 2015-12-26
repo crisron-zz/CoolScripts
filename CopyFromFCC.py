@@ -52,7 +52,8 @@ def main():
     prettyHTML = soup.prettify()
 
     # My local clone of FreeCodeCamp repo on github
-    fccDir = '/Users/saurabh/FreeCodeCamp/'
+    homeDir = os.path.expanduser( '~' )
+    fccDir = os.path.join( homeDir, 'FreeCodeCamp' ) 
 
     # Getting all the filenames in the repo
     files = [ f for f in os.listdir( fccDir ) \
