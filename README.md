@@ -1,2 +1,2 @@
 # CoolScripts
-Some cool and useful `bash` and `python` scripts
+Some cool and useful `bash`, `python` and `vim` scripts
