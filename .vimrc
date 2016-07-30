@@ -67,7 +67,8 @@ set tags=./tags;,./TAGS;,tags,TAGS
 let g:SuperTabDefaultCompletionType = "<c-p>"
 
 " Set the path to ID file
-let LID_File='/Users/saurabh/mozregression-1/ID'
+let LID_File='/Users/saurabh/Downloads/mozilla-central/ID'
+" let LID_File='/Users/saurabh/dhcp/dhcp-4.2.4-P2'
 
 " Make lid not jump to first search result
 let LID_Jump_To_Match=0
