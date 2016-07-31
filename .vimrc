@@ -26,8 +26,15 @@ set softtabstop=4
 " Set indentation options for C++ files
 " autocmd FileType c++ python setlocal expandtab shiftwidth=4 softtabstop=4
 
-" Set indentation options for HTML files
-autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
+" autocmds for HTML files
+augroup html
+    " Delete any existing autocmds for when the file is sourced twice
+    autocmd!
+    " Set indentation options
+    autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
+    " Generate boilerplate code
+    autocmd BufNewFile *.html 0r ~/.vim/skeleton.html
+augroup end
 
 " Tab completion for filenames
 set wildmode=longest,list,full
