@@ -36,6 +36,13 @@ augroup html
     autocmd BufNewFile *.html 0r ~/.vim/skeleton.html
 augroup end
 
+augroup cpp
+    " Delete any existing autocmds for when the file is sourced twice
+    autocmd!
+    " Generate boilerplate code
+    autocmd BufNewFile *.cpp 0r ~/.vim/skeleton.cpp
+augroup end
+
 " Tab completion for filenames
 set wildmode=longest,list,full
 set wildmenu
@@ -79,3 +86,7 @@ let LID_Jump_To_Match = 0
 
 " Use the per-window location list for the results
 let LID_Use_Location_List = 1
+
+" Change current directory to the current file's directory
+" Messes up with minibufexplorer
+" set autochdir
