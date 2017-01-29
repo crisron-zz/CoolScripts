@@ -2,8 +2,6 @@
 
 set -o vi
 export PATH=$PATH:~/
-export PATH=$PATH:~/GeeksForGeeks/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export MOZCONFIG=~/CoolScripts/mozconfig
 export VISUAL=vim
