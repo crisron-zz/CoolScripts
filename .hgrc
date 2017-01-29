@@ -10,13 +10,13 @@ pager =
 histedit = 
 rebase = 
 blackbox = 
-firefoxtree = /Users/saurabhs/.mozbuild/version-control-tools/hgext/firefoxtree
-reviewboard = /Users/saurabhs/.mozbuild/version-control-tools/hgext/reviewboard/client.py
-bzexport = /Users/saurabhs/.mozbuild/version-control-tools/hgext/bzexport
-push-to-try = /Users/saurabhs/.mozbuild/version-control-tools/hgext/push-to-try
+firefoxtree = ~/version-control-tools/hgext/firefoxtree
+reviewboard = ~/version-control-tools/hgext/reviewboard/client.py
+bzexport = ~/version-control-tools/hgext/bzexport
+push-to-try = ~/version-control-tools/hgext/push-to-try
 fsmonitor = 
 progress =
-mozext = /Users/saurabhs/.mozbuild/version-control-tools/hgext/mozext
+mozext = ~/version-control-tools/hgext/mozext
 [pager]
 pager = LESS=FRSXQ less
 attend-help = true
