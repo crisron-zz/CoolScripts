@@ -19,6 +19,7 @@ def parseArguments():
 # TODO: Add an option to show usage
 # TODO: Add an option to show only a particular part of speech
 # TODO: Add an option to show the detailed definition
+# TODO: Add an option to specify how many definitions to show
 # TODO: Write tests
 def main():
     wordToSearch = parseArguments()
