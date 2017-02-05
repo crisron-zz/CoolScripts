@@ -19,6 +19,7 @@ def parseArguments():
 # TODO: Add an option to show usage
 # TODO: Add an option to show only a particular part of speech
 # TODO: Add an option to show the detailed definition
+# TODO: Write tests
 def main():
     wordToSearch = parseArguments()
     baseUrl = "https://www.vocabulary.com/dictionary/"
@@ -30,7 +31,7 @@ def main():
     for h3 in h3s:
         # h3 is not a dict. Use the method provided by BeautifulSoup
         if not h3.has_attr( 'class' ):
-            break
+            continue
         if str( h3[ 'class' ][ 0 ] ) == 'definition':
             count += 1
             text = h3.text
@@ -45,6 +46,16 @@ def main():
                     break
                 i += 1
             print '(' + str( count ) + ') ' + str( h3.a.text ) + '. ' + definition
+
+    # Either the spelling was incorrect, or vocabulary.com doesn't have such a word in
+    # their dictionary, or our script has a bug! Warn the user about this
+    if count == 0:
+        print "Sorry! We could not find the definition of the word you provided."
+        print
+        print "Please check if the spelling of the word you provided is correct. " + \
+               "If the spelling is correct, it is possible that the word is not present " + \
+               "in vocabulary.com dictionary. If you feel that the word is present in the dictionary, " + \
+               "please open an issue against this script at https://github.com/crisron/CoolScripts/issues"
 
 if __name__ == '__main__':
     main()
