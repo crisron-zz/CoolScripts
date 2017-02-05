@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+'''
+This script searches for the definition of a word
+specified on the command line on vocabulary.com
+'''
+
+import argparse
+from urllib2 import urlopen
+from bs4 import BeautifulSoup
+
+def parseArguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument( "word", help="Word for which the definition is to be searched" )
+    args = parser.parse_args()
+    return args.word
+
+# TODO: Add an option to show synonyms
+# TODO: Add an option to show usage
+# TODO: Add an option to show only a particular part of speech
+# TODO: Add an option to show the detailed definition
+def main():
+    wordToSearch = parseArguments()
+    baseUrl = "https://www.vocabulary.com/dictionary/"
+    url = baseUrl + wordToSearch
+    soup = BeautifulSoup( urlopen( url ), "html.parser" )
+    # We'll find all the definitions in h3 elements
+    h3s = soup.find_all( 'h3' )
+    count = 0
+    for h3 in h3s:
+        # h3 is not a dict. Use the method provided by BeautifulSoup
+        if not h3.has_attr( 'class' ):
+            break
+        if str( h3[ 'class' ][ 0 ] ) == 'definition':
+            count += 1
+            text = h3.text
+            # Sanitize the string
+            text = str( text.replace( '\n', '' ).replace( '\r', '' ).replace( '\t', '' ) )
+            # There are spaces between the part of speech and the definition
+            firstSpace = text.find( ' ' )
+            i = firstSpace
+            while i < len( text ):
+                if text[ i ] != ' ':
+                    definition = text[ i: ]
+                    break
+                i += 1
+            print '(' + str( count ) + ') ' + str( h3.a.text ) + '. ' + definition
+
+if __name__ == '__main__':
+    main()
