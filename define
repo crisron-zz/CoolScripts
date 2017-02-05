@@ -53,9 +53,9 @@ def main():
         print "Sorry! We could not find the definition of the word you provided."
         print
         print "Please check if the spelling of the word you provided is correct. " + \
-               "If the spelling is correct, it is possible that the word is not present " + \
-               "in vocabulary.com dictionary. If you feel that the word is present in the dictionary, " + \
-               "please open an issue against this script at https://github.com/crisron/CoolScripts/issues"
+              "If the spelling is correct, it is possible that the word is not present " + \
+              "in vocabulary.com dictionary. If you feel that the word is present in the dictionary, " + \
+              "please open an issue against this script at https://github.com/crisron/CoolScripts/issues"
 
 if __name__ == '__main__':
     main()
